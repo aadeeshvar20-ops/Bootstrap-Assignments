@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Michi Ramen</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin: 0 10px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #f4b63d !important;
+        }
+
+        .order-btn {
+            margin-left: 185px;
+            background: #f4b63d;
+            color: white;
+            border-radius: 2px;
+            font-size: 13px;
+            padding: 8px 18px;
+            border: none;
+        }
+
+        .order-btn:hover,
+        .footer-btn:hover {
+            background: #d89b25;
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)),
+                url("images/hero\ image.jpg");
+
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .hero-sub {
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* COMMON */
+
+        .section-title {
+            color: #c60000;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* ORDER SECTION */
+
+        .order-section {
+            background: #f8f4ef;
+        }
+
+        .icon-box i {
+            font-size: 60px;
+            color: #f4b63d;
+        }
+
+        .icon-box h6 {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .icon-box p {
+            font-size: 16px;
+            color: gray;
+        }
+
+        /* MENU */
+
+        .menu-section {
+            background: #f4b63d;
+        }
+
+        .menu-card {
+            background: transparent;
+            border: none;
+            text-align: center;
+        }
+
+        .menu-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            transition: 0.3s;
+        }
+
+        .menu-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-name {
+            margin-top: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .price {
+            color: #b30000;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .menu-desc {
+            font-size: 15px;
+            color: #5c3812;
+            line-height: 1.6;
+        }
+
+        /* ABOUT */
+
+        .about-section img {
+            border-radius: 10px;
+        }
+
+        /* LOCATIONS */
+
+        .location-box {
+            background: #fff4de;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .location-box i {
+            font-size: 40px;
+            color: #d35400;
+        }
+
+        /* BLOG */
+
+        .blog-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* HAPPY HOUR */
+
+        .happy h2 {
+            color: #c0392b;
+            font-weight: bold;
+        }
+
+        .happy img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #2b1d16;
+            color: white;
+        }
+
+        footer i {
+            color: #f4b63d;
+            margin: 0 8px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        footer i:hover {
+            color: white;
+        }
+
+        .footer-btn {
+            background: #f4b63d;
+            border: none;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width:768px) {
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-sub {
+                font-size: 11px;
+            }
+
+            .menu-card img {
+                width: 130px;
+                height: 130px;
+            }
+
+            .happy img {
+                height: 220px;
+            }
+
+            .order-btn {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a href="#home" class="navbar-brand">
+            <img src="" width="45" class="me-2">MICHI</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item">
+                        <a href="#menu-section" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#locations" class="nav-link">Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#blog" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+                <a href="#order-online" class="btn order-btn">ORDER ONLINE</a>
+            </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="container">
+        <h1 class="hero-title">MICHI RAMEN</h1>
+        <p class="hero-sub">TUESDAY - SUNDAY 11AM MIDNIGHT | HAPPY HOUR 5PM-7PM</p>
+    </div>
+</section>
+
+<!-- ORDER -->
+
+<section class="order-section py-5" id="order-online">
+    <div class="container text-center">
+        <h3 class="section-title mb-5">HOW TO ORDER AT MICHI</h3>
+        <div class="row g-4">
+            <div class="icon-box">
+                <i class="bi bi-cup-hot-fill"></i>
+                <h6>PICK YOUR RAMEN</h6>
+                <p>
+                    Choose your favourite ramen bowl with authentic Japanese flavours.
+                </p>
+            </div>
+        
+        <div class="col-md-4">
+            <div class="icon-box">
+                <i class="bi bi-droplet-half"></i>
+                <h6>PICK YOUR BROTH</h6>
+                <p>
+                    Light, Regular or Stout broth according to your taste.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="icon-box">
+                <i class="bi bi-egg-fried"></i>
+                <h6>ADD TOPINGS</h6>
+                <p>
+                    Add eggs, pork, veggies and many delicios toppings.
+                </p>
+            </div>
+        </div>
+         <div class="col-md-4">
+            <div class="icon-box">
+                <i class="bi bi-cup-straw"></i>
+                <h6>ADD Drinks</h6>
+                <p>
+                    Add  spicy, sweet, Tangy and many delicious drinks.
+                </p>
+            </div>
+        </div>
+     </div>
+    </div>
+</section>
+
+<!-- MENU -->
+
+<section class="menu-section py-5" id="menu-section">
+    <div class="container">
+        <h2 class="text-center text-white fw-bold mb-5">RAMEN MENU</h2>
+        <div class="row g-5">
+           <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1694708455263-e58c7aacbb19?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJhbWVufGVufDB8fDB8fHww" class="img-fluid">
+                    <h5 class="menu-name">MICHI</h5>
+                    <p class="price">$8.50</p>
+                    <p class="menu-desc">
+                        Rich pork broth ramen with authentic Japanese noodles and fresh toppings. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1694547924505-caf71944b4df?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHJhbWVufGVufDB8fDB8fHww" class="img-fluid">
+                    <h5 class="menu-name">SAPPORO</h5>
+                    <p class="price">$9.50</p>
+                    <p class="menu-desc">
+                        Creamy miso tonkotsu ramen packed with deep flavours and spices.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1694707235544-c9f6884d77d8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHJhbWVufGVufDB8fDB8fHww" class="img-fluid">
+                    <h5 class="menu-name">VEGGIE</h5>
+                    <p class="price">$7.50</p>
+                    <p class="menu-desc">
+                        Fresh vegetable ramen with mushrooms, herbs and rich soy broth.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFtZW58ZW58MHx8MHx8fDA%3D" class="img-fluid">
+                    <h5 class="menu-name">MEAT LOVERS</h5>
+                    <p class="price">$10.50</p>
+                    <p class="menu-desc">
+                        Double meat ramen loaded with spicy broth and premium toppings. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1694630151049-12dc988ac71a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODV8fHJhbWVuJTIwbm9vZGxlc3xlbnwwfHwwfHx8MA%3D%3D" class="img-fluid">
+                    <h5 class="menu-name">DIPPING</h5>
+                    <p class="price">$11.50</p>
+                    <p class="menu-desc">
+                        Thick dipping noodles served with flavoured fish tonkotsu broth.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHJhbWVuJTIwc3BlY2lhbHxlbnwwfHwwfHx8MA%3D%3D" class="img-fluid">
+                    <h5 class="menu-name">TEXAS</h5>
+                    <p class="price">$8.50</p>
+                    <p class="menu-desc">
+                        Fusion ramen with tomato broth, herbs and smoky spicy flavour.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1617421753170-46511a8d73fc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhbWVufGVufDB8fDB8fHww" class="img-fluid">
+                    <h5 class="menu-name">JUNGLE</h5>
+                    <p class="price">$9.50</p>
+                    <p class="menu-desc">
+                        Lemongrass infused ramen with exotic spices and creamy broth.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="menu-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1694630151078-f39c38cb09ef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHNwZWNpYWwlMjByYW1lbnxlbnwwfHwwfHx8MA%3D%3D" class="img-fluid">
+                    <h5 class="menu-name">SPECIAL</h5>
+                    <p class="price">$15.50</p>
+                    <p class="menu-desc">
+                        Chef's signature premium ramen with delicious handcrafted toppings. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <button class="btn btn-dark px-4">VIEW OUR FULL MENU</button>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+    <section class="about-section py-5" id="about">
+
+        <div class="container">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1200&auto=format&fit=crop"
+                        class="img-fluid"
+                        alt="Restaurant">
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <h2 class="section-title mb-4">
+                        ABOUT MICHI
+                    </h2>
+
+                    <p class="text-muted">
+                        Michi Ramen delivers authentic Japanese ramen experience with handcrafted broths,
+                        fresh noodles and delicious toppings.
+                    </p>
+
+                    <button class="btn btn-warning mt-3 text-white">
+                        READ MORE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LOCATIONS -->
+
+    <section class="py-5" id="locations">
+
+        <div class="container">
+
+            <h2 class="section-title text-center mb-5">
+                OUR LOCATIONS
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="location-box">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <h5 class="mt-3">Austin</h5>
+
+                        <p>6519 N Lamar Blvd, Austin, TX</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="location-box">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <h5 class="mt-3">Downtown</h5>
+
+                        <p>300 Colorado St, Austin, TX</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="location-box">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <h5 class="mt-3">Houston</h5>
+
+                        <p>920 Main Street, Houston, TX</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BLOG -->
+
+    <section class="py-5 bg-light" id="blog">
+
+        <div class="container">
+
+            <h2 class="section-title text-center mb-5">
+                LATEST BLOGS
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="card blog-card border-0 shadow-sm">
+
+                        <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top"
+                            alt="Blog">
+
+                        <div class="card-body">
+
+                            <h5>Best Japanese Ramen Experience</h5>
+
+                            <p class="text-muted">
+                                Discover authentic ramen flavors and unique Japanese dining traditions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card blog-card border-0 shadow-sm">
+
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top"
+                            alt="Blog">
+
+                        <div class="card-body">
+
+                            <h5>Secret Behind Tonkotsu Broth</h5>
+
+                            <p class="text-muted">
+                                Learn how slow-cooked broth creates deep and rich ramen flavor.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card blog-card border-0 shadow-sm">
+
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top"
+                            alt="Blog">
+
+                        <div class="card-body">
+
+                            <h5>Perfect Ramen Toppings Guide</h5>
+
+                            <p class="text-muted">
+                                Explore delicious toppings that make your ramen unforgettable.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HAPPY HOUR -->
+
+    <section class="happy py-5">
+
+        <div class="container text-center">
+
+            <h2>JOIN US FOR HAPPY HOUR</h2>
+
+            <p class="text-muted">
+                5-7 PM • 7 DAYS A WEEK • ALL DAY WEDNESDAY & SUNDAY
+            </p>
+
+            <div class="row mt-4 g-3">
+
+                <div class="col-md-4">
+
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=600&auto=format&fit=crop"
+                        class="img-fluid rounded"
+                        alt="Happy Hour">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop"
+                        class="img-fluid rounded"
+                        alt="Restaurant">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop"
+                        class="img-fluid rounded"
+                        alt="Drinks">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="py-4">
+
+        <div class="container">
+
+            <div class="row align-items-center text-center text-md-start">
+
+                <div class="col-md-4 mb-3 mb-md-0">
+
+                    <i class="bi bi-twitter"></i>
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-instagram"></i>
+
+                </div>
+
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+
+                    OPEN MON - SUN, 11AM - 12AM
+
+                </div>
+
+                <div class="col-md-4 text-md-end text-center">
+
+                    <button class="btn footer-btn">
+                        ORDER ONLINE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
